@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alva Biocosméticos</title>
+
+  <!-- Google Fonts similar to the mockup -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #f5efe4; /* light beige */
+      --accent: #2f5234; /* dark green */
+      --muted: #bfae96;
+      --rounded: 28px;
+      --section-padding: 56px;
+      --max-width: 1150px;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--accent);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+    }
+
+    .container{
+      width: min(96%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 0;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo svg{width:56px;height:56px}
+    .brand{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+    .brand .title{
+      font-weight:700;
+      font-family: "Libre Caslon Text", serif;
+      letter-spacing:0.6px;
+      color:var(--accent);
+      font-size:20px;
+    }
+    .brand .subtitle{
+      font-size:10px;
+      color:#6a7b64;
+      margin-top:2px;
+      letter-spacing:0.6px;
+    }
+
+    nav{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      font-weight:500;
+    }
+    nav a{
+      color:var(--accent);
+      text-decoration:none;
+      font-size:15px;
+      padding:6px 8px;
+    }
+    nav a:hover{color:#1f3b25}
+
+    .cta-top{
+      background:var(--accent);
+      color:#fff;
+      padding:10px 18px;
+      border-radius:30px;
+      font-weight:600;
+      text-decoration:none;
+    }
+
+    /* Banner */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 540px;
+      gap:28px;
+      align-items:center;
+      margin-top:18px;
+    }
+
+    .hero-left{
+      padding:40px 0 40px 20px;
+    }
+
+    .hero-left h1{
+      font-family: "Libre Caslon Text", serif;
+      font-size:64px;
+      margin:0 0 16px 0;
+      color:var(--accent);
+      line-height:1.02;
+      letter-spacing: -1px;
+    }
+
+    .hero-left p.lead{
+      font-weight:600;
+      margin:14px 0 22px 0;
+      font-size:18px;
+      color:#2f5234;
+    }
+
+    .btn-primary{
+      display:inline-block;
+      background:var(--accent);
+      color:white;
+      padding:12px 24px;
+      border-radius:28px;
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    /* Hero image card with rounded corner like mockup */
+    .hero-right{
+      display:block;
+      overflow:hidden;
+      border-top-left-radius:60px;
+      border-bottom-left-radius:60px;
+      border-top-right-radius:18px;
+      border-bottom-right-radius:18px;
+      box-shadow: 0 6px 18px rgba(15,20,10,0.08);
+    }
+    .hero-right img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+    }
+
+    /* Produtos */
+    section.produtos{
+      margin-top:46px;
+      background:transparent;
+      padding:40px 0 18px;
+    }
+
+    h2.section-title{
+      text-align:center;
+      font-family: "Libre Caslon Text", serif;
+      font-size:36px;
+      margin:0 0 28px 0;
+      color:var(--accent);
+    }
+
+    .prod-grid{
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:22px;
+    }
+
+    .card-prod{
+      background: #fff;
+      padding:12px;
+      border-radius:12px;
+      text-align:center;
+      box-shadow: 0 4px 10px rgba(15,20,10,0.04);
+    }
+    .card-prod img{
+      width:100%;
+      height:170px;
+      object-fit:cover;
+      border-radius:8px;
+    }
+    .card-prod .prod-name{
+      margin-top:12px;
+      font-weight:600;
+      color:var(--accent);
+    }
+
+    /* Recicla & Ganha */
+    .recicla{
+      margin-top:40px;
+      background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01));
+      padding:28px;
+      border-radius:16px;
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    .recicla .icon{
+      width:96px;height:96px;flex:0 0 96px;
+      display:flex;align-items:center;justify-content:center;
+      border-radius:50%;
+      background:transparent;
+      margin-left:6px;
+    }
+    .recicla h3{
+      margin:0;
+      font-family: "Libre Caslon Text", serif;
+      font-size:28px;
+      color:var(--accent);
+    }
+    .recicla p{
+      margin:6px 0 0 0;
+      color:#3f5a45;
+    }
+
+    footer{
+      margin-top:48px;
+      padding:28px 0;
+      text-align:center;
+      color:#6a7b64;
+      font-size:14px;
+    }
+
+    /* Responsiveness */
+    @media (max-width:1100px){
+      .hero{grid-template-columns: 1fr 420px}
+      .hero-left h1{font-size:52px}
+    }
+    @media (max-width:860px){
+      .hero{grid-template-columns: 1fr; gap:18px}
+      .hero-right{order: -1}
+      .hero-left h1{font-size:44px}
+      .prod-grid{grid-template-columns: repeat(2,1fr)}
+    }
+    @media (max-width:420px){
+      header{padding:12px 0}
+      .brand .title{font-size:18px}
+      .hero-left h1{font-size:34px}
+      .prod-grid{grid-template-columns:1fr}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <!-- simple leafy logo (SVG inline) -->
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="#2f5234" stroke-width="2.5"/>
+          <path d="M32 18c5.5 6 9 7 14 7-3 6-7 10-14 10s-11-3-14-10c5 0 8-1 14-7z" fill="none" stroke="#2f5234" stroke-width="2"/>
+          <path d="M40 20c0 4-5 7-8 7s-8-3-8-7 5-8 8-8 8 4 8 8z" fill="none" stroke="#2f5234" stroke-width="2"/>
+        </svg>
+
+        <div class="brand" aria-hidden="false">
+          <div class="title">ALVA</div>
+          <div class="subtitle">BIOCOSMÉTICOS</div>
+        </div>
+      </div>
+
+      <nav aria-label="Menu principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#contato">Contato</a>
+        <a class="cta-top" href="#produtos">Descubra Mais</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main id="inicio" class="hero" role="main">
+      <div class="hero-left">
+        <h1>Beleza<br>consciente<br>que respeita<br>a natureza</h1>
+        <p class="lead">Compre agora</p>
+        <a class="btn-primary" href="#produtos">Compre agora</a>
+      </div>
+
+      <div class="hero-right" aria-hidden="false">
+        <!-- Use your high-res hero image here -->
+        <img src="assets/hero.jpeg" alt="Produtos Alva - Hidratante e Perfume Botânico">
+      </div>
+    </main>
+
+    <!-- Produtos -->
+    <section id="produtos" class="produtos container">
+      <h2 class="section-title">Nossos Produtos</h2>
+
+      <div class="prod-grid">
+        <div class="card-prod">
+          <img src="assets/prod-1.jpeg" alt="Hidratante corporal">
+          <div class="prod-name">Hidratante Corporal</div>
+        </div>
+
+        <div class="card-prod">
+          <img src="assets/prod-2.jpeg" alt="Sabonete liquido">
+          <div class="prod-name">Sabonete Liquido</div>
+        </div>
+
+        <div class="card-prod">
+          <img src="assets/prod-3.png" alt="Shampoo solido">
+          <div class="prod-name">Shampoo Solido</div>
+        </div>
+
+        <div class="card-prod">
+          <img src="assets/prod-4.png" alt="Óleo multifuncional">
+          <div class="prod-name">Óleo multifuncional</div>
+        </div>
+      </div>
+
+      <!-- Recicla & Ganha -->
+      <div style="margin-top:28px;">
+        <div class="recicla container">
+          <div class="icon" aria-hidden="true">
+            <!-- recycle icon -->
+            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2v4l3-2-3-2z" fill="#2f5234" opacity="0.02"></path>
+              <path d="M21 12.5a7.4 7.4 0 0 0-.9-3.4l-1.6 1.1a5.5 5.5 0 1 1-7 2.1l1.2-1.7A7.4 7.4 0 0 0 21 12.5z" stroke="#2f5234" stroke-width="1.6" fill="none"/>
+              <path d="M3 11.5c0 1.9.8 3.6 2.1 4.8L6.8 15A4.5 4.5 0 1 0 14 10.7l-1.2 1.7A7.3 7.3 0 0 0 3 11.5z" stroke="#2f5234" stroke-width="1.6" fill="none"/>
+            </svg>
+          </div>
+
+          <div>
+            <h3>Recicla &amp; Ganha</h3>
+            <p>Devolva as embalagens e ganhe desconto na sua próxima compra</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="max-width:var(--max-width);margin:0 auto;padding:10px;">
+        © <strong>ALVA Biocosméticos</strong> — Beleza sustentável. Todos os direitos reservados.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // small JS to support smooth scroll and mobile fallback
+    (function(){
+      document.querySelectorAll('a[href^="#"]').forEach(link=>{
+        link.addEventListener('click', function(e){
+          const href = this.getAttribute('href');
+          if(href.length>1){
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if(target){
+              target.scrollIntoView({behavior:'smooth', block:'start'});
+            }
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
